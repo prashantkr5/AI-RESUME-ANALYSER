@@ -3,13 +3,13 @@
   "private": true,
   "version": "1.0.0",
   "engines": {
-    "node": "22.x"
+    "node": ">=18.0.0"
   },
   "workspaces": [
     "frontend",
     "backend"
   ],
   "scripts": {
-    "build": "cd frontend && npm install && npm run build"
+    "build": "cd frontend && npm install --include=dev && npm run build"
   }
 }
