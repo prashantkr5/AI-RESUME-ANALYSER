@@ -296,12 +296,12 @@
   top: -10px;
   right: 40px;
   width: 290px;
-  background: rgba(18, 26, 43, 0.7);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(232, 220, 200, 0.1);
+  background: rgba(18, 26, 43, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(198, 167, 94, 0.3);
   border-radius: 20px;
-  padding: 1.25rem;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  padding: 1.5rem;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(198, 167, 94, 0.15);
   z-index: 3;
 }
 
@@ -313,45 +313,46 @@
 }
 
 .card-title-sub {
-  font-size: 0.65rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: rgba(232, 220, 200, 0.5);
+  letter-spacing: 1.2px;
+  color: var(--gold);
   font-weight: 700;
 }
 
 .card-title-main {
-  font-size: 0.85rem;
-  color: var(--beige-light);
-  font-weight: 600;
-  margin-top: 0.15rem;
+  font-size: 0.95rem;
+  color: #ffffff;
+  font-weight: 700;
+  margin-top: 0.2rem;
 }
 
 .status-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  background: rgba(40, 140, 82, 0.15);
-  border: 1px solid rgba(40, 140, 82, 0.3);
-  color: #55d688;
-  font-size: 0.7rem;
+  background: rgba(40, 140, 82, 0.25);
+  border: 1px solid rgba(40, 140, 82, 0.5);
+  color: #4ade80;
+  font-size: 0.75rem;
   font-weight: 700;
-  padding: 0.2rem 0.5rem;
+  padding: 0.25rem 0.6rem;
   border-radius: 99px;
 }
 
 .status-dot {
-  width: 6px;
-  height: 6px;
-  background-color: #55d688;
+  width: 7px;
+  height: 7px;
+  background-color: #4ade80;
   border-radius: 50%;
+  box-shadow: 0 0 8px #4ade80;
 }
 
 .gauge-container {
   position: relative;
-  width: 140px;
-  height: 140px;
-  margin: 0.5rem auto 1rem;
+  width: 150px;
+  height: 150px;
+  margin: 1rem auto 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -365,7 +366,7 @@
 
 .gauge-bg {
   fill: none;
-  stroke: rgba(232, 220, 200, 0.08);
+  stroke: rgba(232, 220, 200, 0.12);
   stroke-width: 10;
 }
 
@@ -376,45 +377,55 @@
   stroke-linecap: round;
   stroke-dasharray: 251.2;
   stroke-dashoffset: 251.2;
+  filter: drop-shadow(0 0 6px rgba(198, 167, 94, 0.6));
   transition: stroke-dashoffset 1.5s cubic-bezier(0.1, 0.8, 0.2, 1);
 }
 
 .gauge-text {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
 }
 
 .gauge-score {
   font-family: var(--font-display);
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: var(--beige-light);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
   line-height: 1;
+  text-shadow: 0 0 12px rgba(198, 167, 94, 0.4);
 }
 
 .gauge-label {
-  font-size: 0.65rem;
-  color: rgba(232, 220, 200, 0.5);
-  margin-top: 0.2rem;
+  font-size: 0.7rem;
+  color: var(--gold);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.25rem;
 }
 
 .vs-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  background: rgba(198, 167, 94, 0.15);
-  border: 1px solid rgba(198, 167, 94, 0.25);
+  background: rgba(198, 167, 94, 0.2);
+  border: 1px solid rgba(198, 167, 94, 0.4);
   color: var(--gold);
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.25rem 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.3rem 0.75rem;
   border-radius: 99px;
   margin: 0 auto;
   display: table;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 /* Floating Tech Tags */

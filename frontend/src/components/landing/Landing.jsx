@@ -669,9 +669,9 @@ function Home({ isLoggedIn, handleLogout }) {
           <div className="footer-col">
             <span className="footer-col-title">Connect</span>
             <div className="footer-links">
-              <span className="footer-link" style={{ cursor: "not-allowed" }}>Twitter / X</span>
-              <span className="footer-link" style={{ cursor: "not-allowed" }}>LinkedIn</span>
-              <span className="footer-link" style={{ cursor: "not-allowed" }}>GitHub</span>
+              <a href="https://x.com/Prashantkr6555" target="_blank" rel="noopener noreferrer" className="footer-link">Twitter / X</a>
+              <a href="https://www.linkedin.com/in/prashant-kumar-pathak-701863313/" target="_blank" rel="noopener noreferrer" className="footer-link">LinkedIn</a>
+              <a href="https://github.com/prashantkr5/AI-RESUME-ANALYSER/tree/main" target="_blank" rel="noopener noreferrer" className="footer-link">GitHub</a>
             </div>
           </div>
         </div>
@@ -679,7 +679,7 @@ function Home({ isLoggedIn, handleLogout }) {
         <div className="footer-bottom">
           <span>&copy; {new Date().getFullYear()} Resume Roaster. All rights reserved. Built for developers.</span>
           <div className="footer-socials">
-            <span>Made by Google DeepMind</span>
+            <span>Built with ☕ from BU grads.</span>
           </div>
         </div>
       </footer>

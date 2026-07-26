@@ -10,8 +10,20 @@ export const clearAccessToken = () => {
   currentToken = null;
 };
 
+const getBaseURL = () => {
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
+  }
+  if (import.meta.env.MODE === 'production' || window.location.hostname !== 'localhost') {
+    return '/api';
+  }
+  return 'http://localhost:5001/api';
+};
+
+const baseURL = getBaseURL();
+
 const client = axios.create({
-  baseURL: "http://localhost:5001/api",
+  baseURL,
   withCredentials: true,
 });
 
@@ -35,7 +47,7 @@ client.interceptors.response.use(
       originalRequest._retry = true;
       try {
         const res = await axios.post(
-          'http://localhost:5001/api/auth/refresh',
+          `${baseURL}/auth/refresh`,
           {},
           { withCredentials: true }
         );
