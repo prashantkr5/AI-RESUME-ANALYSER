@@ -10,6 +10,6 @@
     "backend"
   ],
   "scripts": {
-    "build": "[ -d \"frontend\" ] && cd frontend; npm install --include=dev && npm run build"
+    "build": "npm run build --workspace=frontend"
   }
 }
