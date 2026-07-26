@@ -11,8 +11,13 @@ export const clearAccessToken = () => {
 };
 
 const getBaseURL = () => {
-  if (import.meta.env.VITE_API_URL) {
-    return import.meta.env.VITE_API_URL;
+  let url = import.meta.env.VITE_API_URL;
+  if (url) {
+    url = url.trim().replace(/\/+$/, '');
+    if (!url.endsWith('/api')) {
+      url = `${url}/api`;
+    }
+    return url;
   }
   if (import.meta.env.MODE === 'production' || window.location.hostname !== 'localhost') {
     return '/api';
