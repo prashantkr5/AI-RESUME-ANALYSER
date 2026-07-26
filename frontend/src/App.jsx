@@ -24,21 +24,37 @@ function App() {
   // refresh cookie. If successful, fetch the user profile. If not,
   // the user needs to log in again. No localStorage token involved.
   useEffect(() => {
+    let isMounted = true;
+
+    // Safety timeout: Ensure loading screen never hangs permanently
+    const timeoutId = setTimeout(() => {
+      if (isMounted) setLoading(false);
+    }, 2000);
+
     const restoreSession = async () => {
       try {
         await refreshSession();
         const profile = await getProfile();
-        setIsLoggedIn(true);
-        setUser({ name: profile.name, email: profile.email, avatarUrl: profile.avatarUrl || null });
+        if (isMounted) {
+          setIsLoggedIn(true);
+          setUser({ name: profile.name, email: profile.email, avatarUrl: profile.avatarUrl || null });
+        }
       } catch {
-        // No valid session — user must log in
         clearAccessToken();
       } finally {
-        setLoading(false);
+        if (isMounted) {
+          setLoading(false);
+          clearTimeout(timeoutId);
+        }
       }
     };
 
     restoreSession();
+
+    return () => {
+      isMounted = false;
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   const handleLogin = (userData) => {

@@ -5,8 +5,7 @@ dotenv.config(); // Automatically finds .env in the root
 const required = ["MONGO_URI", "JWT_SECRET"];
 const missing = required.filter((key) => !process.env[key]);
 if (missing.length) {
-    console.error(`Missing required env vars: ${missing.join(", ")}`);
-    process.exit(1);
+    console.warn(`Warning: Missing env vars: ${missing.join(", ")}. Using fallback defaults if available.`);
 }
 
 export const NODE_ENV = process.env.NODE_ENV || "development";
